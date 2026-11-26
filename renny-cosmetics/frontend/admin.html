@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin | Renny Cosmetics</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body class="admin">
+
+  <!-- ===== LOGIN ===== -->
+  <div class="gate" id="gate">
+    <form class="gate-card" id="gateForm" novalidate>
+      <img src="assets/img/logo.svg" alt="Renny Cosmetics" width="900" height="364">
+      <h1>Masuk ke admin</h1>
+      <p>Kelola pesanan, produk, pengguna, dan pengaturan toko.</p>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" autocomplete="username">
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" id="password" autocomplete="current-password">
+      </div>
+      <p class="form-error" id="gateError" hidden></p>
+      <button class="btn btn-primary btn-block" type="submit">Masuk</button>
+      <a class="link gate-back" href="index.html">Kembali ke toko</a>
+    </form>
+  </div>
+
+  <!-- ===== ADMIN ===== -->
+  <div class="admin-shell" id="app" hidden>
+    <aside class="sidebar" id="sidebar">
+      <a href="index.html" class="sidebar-logo" target="_blank" rel="noopener" aria-label="Buka toko"><img src="assets/img/logo.svg" alt="Renny Cosmetics" width="900" height="364"></a>
+      <nav class="side-nav" aria-label="Menu admin">
+        <a class="side-link" href="#ringkasan">Ringkasan</a>
+        <a class="side-link" href="#pesanan">Pesanan <span class="pill" id="navOrders" hidden></span></a>
+        <a class="side-link" href="#produk">Produk</a>
+        <a class="side-link" href="#kategori">Kategori</a>
+        <a class="side-link" href="#brand">Brand & logo</a>
+        <a class="side-link" href="#pengguna">Pengguna</a>
+        <a class="side-link" href="#promo">Banner promo</a>
+        <a class="side-link" href="#testimoni">Testimoni</a>
+        <a class="side-link" href="#faq">FAQ</a>
+        <a class="side-link" href="#pengaturan">Pengaturan toko</a>
+        <a class="side-link" href="#data">iPOS & stok</a>
+      </nav>
+      <div class="side-foot">
+        <a class="side-link" href="index.html" target="_blank" rel="noopener">Lihat toko</a>
+        <a class="side-link" href="#akun">Akun saya</a>
+        <button type="button" class="side-link" id="logoutBtn">Keluar</button>
+      </div>
+    </aside>
+
+    <main class="admin-main">
+      <div class="status-bar" id="statusBar"></div>
+      <div id="adminView"></div>
+    </main>
+  </div>
+
+  <!-- dialog umum (form tambah/edit) -->
+  <dialog class="modal" id="formModal" aria-labelledby="formTitle">
+    <form class="form" id="modalForm" novalidate>
+      <div class="modal-head">
+        <h2 id="formTitle"></h2>
+        <button type="button" class="icon-btn" data-close aria-label="Tutup">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+      <div id="formBody"></div>
+      <p class="form-error" id="formError" hidden></p>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-ghost" data-close>Batal</button>
+        <button type="submit" class="btn btn-primary" id="formSubmit">Simpan</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- konfirmasi -->
+  <dialog class="modal modal-sm" id="confirmModal" aria-labelledby="confirmTitle">
+    <div class="confirm">
+      <h2 id="confirmTitle"></h2>
+      <p id="confirmText"></p>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-ghost" id="confirmCancel">Batal</button>
+        <button type="button" class="btn btn-danger" id="confirmOk">Hapus</button>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- pengaturan, lalu shared: data & penghubung API -->
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/shared/core.js"></script>
+  <script src="assets/js/shared/api.js"></script>
+  <!-- panel admin (urutan penting: dasar dulu, main paling akhir) -->
+  <script src="assets/js/admin/dasar.js"></script>
+  <script src="assets/js/admin/ringkasan.js"></script>
+  <script src="assets/js/admin/pesanan.js"></script>
+  <script src="assets/js/admin/produk.js"></script>
+  <script src="assets/js/admin/kategori.js"></script>
+  <script src="assets/js/admin/brand.js"></script>
+  <script src="assets/js/admin/pengguna.js"></script>
+  <script src="assets/js/admin/konten.js"></script>
+  <script src="assets/js/admin/pengaturan.js"></script>
+  <script src="assets/js/admin/ipos.js"></script>
+  <script src="assets/js/admin/akun.js"></script>
+  <script src="assets/js/admin/main.js"></script>
+</body>
+</html>

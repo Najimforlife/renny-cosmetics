@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Renny Cosmetics | Toko Kosmetik & Skincare Original di Balikpapan</title>
+  <meta name="description" content="Belanja skincare, makeup, bodycare, parfum, dan aksesoris original dari 140+ brand di Renny Cosmetics, Balikpapan. Pesan mudah lewat WhatsApp.">
+  <meta name="theme-color" content="#C8317A">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Renny Cosmetics">
+  <meta property="og:description" content="Kosmetik & skincare original dari 140+ brand. Balikpapan, pesan lewat WhatsApp.">
+  <meta property="og:image" content="assets/img/og.png">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- ===== TOP BAR ===== -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <p id="topbarText"></p>
+      <a href="#/lokasi">Lokasi toko</a>
+    </div>
+  </div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#/" class="logo" aria-label="Renny Cosmetics, ke beranda">
+        <img src="assets/img/logo.svg" alt="Renny Cosmetics" width="900" height="364">
+      </a>
+
+      <form class="search" id="searchForm" role="search" autocomplete="off">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="search" id="searchInput" placeholder="Cari produk, brand, atau kode barang" aria-label="Cari produk" aria-controls="suggest" aria-expanded="false">
+        <div class="suggest" id="suggest" role="listbox" hidden></div>
+      </form>
+
+      <div class="header-actions">
+        <a class="account-link" id="accountLink" href="#/masuk">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+          <span id="accountText">Masuk</span>
+        </a>
+        <a class="icon-btn" href="#/wishlist" aria-label="Wishlist" title="Wishlist">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-9.2-8.6C1.2 8.3 3 5 6.3 5c2 0 3.2 1.1 3.9 2.2h3.6C14.5 6.1 15.7 5 17.7 5 21 5 22.8 8.3 21.2 11.4 19 15.6 12 20 12 20z"/></svg>
+          <span class="badge" id="wishCount" hidden>0</span>
+        </a>
+        <button class="icon-btn" id="cartBtn" type="button" aria-label="Buka keranjang" title="Keranjang">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 8h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+          <span class="badge" id="cartCount" hidden>0</span>
+        </button>
+      </div>
+    </div>
+    <nav class="catnav" aria-label="Kategori produk">
+      <div class="container catnav-inner" id="catNav"></div>
+    </nav>
+  </header>
+
+  <main id="view" tabindex="-1">
+    <div class="loading" id="loading">
+      <span class="spinner" aria-hidden="true"></span>
+      <p>Memuat produk...</p>
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <img src="assets/img/logo-putih.svg" alt="Renny Cosmetics" class="footer-logo" width="900" height="364">
+        <p class="footer-about">Toko kosmetik multi-brand di Balikpapan. Skincare, makeup, bodycare, haircare, parfum, dan aksesoris original.</p>
+        <div class="social" id="footerSocial"></div>
+      </div>
+      <div>
+        <h4>Kategori</h4>
+        <ul id="footerCats"></ul>
+      </div>
+      <div>
+        <h4>Belanja</h4>
+        <ul>
+          <li><a href="#/produk">Semua produk</a></li>
+          <li><a href="#/brand">Semua brand</a></li>
+          <li><a href="#/wishlist">Wishlist</a></li>
+          <li><a href="#/bantuan">Ongkir, pembayaran & FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontak</h4>
+        <ul id="footerContact"></ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year"></span> Renny Cosmetics. Semua produk dijamin original.</p>
+      <a href="admin.html" class="footer-admin">Admin</a>
+    </div>
+  </footer>
+
+  <a class="wa-float" id="waFloat" target="_blank" rel="noopener" aria-label="Chat WhatsApp Renny Cosmetics">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3 1 2.6 1.1 2.8.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.4-.3z"/></svg>
+  </a>
+
+  <!-- ===== KERANJANG ===== -->
+  <dialog class="drawer" id="cartDrawer" aria-labelledby="cartTitle">
+    <div class="drawer-head">
+      <h2 id="cartTitle">Keranjang</h2>
+      <button class="icon-btn" type="button" data-close aria-label="Tutup keranjang">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="drawer-body" id="cartItems"></div>
+    <div class="drawer-foot" id="cartFoot">
+      <div class="total-row"><span>Subtotal</span><strong id="cartTotal">Rp0</strong></div>
+      <p class="drawer-note">Stok dan ongkir dikonfirmasi admin lewat WhatsApp.</p>
+      <button class="btn btn-primary btn-block btn-lg" type="button" id="checkoutBtn">Checkout</button>
+    </div>
+  </dialog>
+
+  <!-- ===== CHECKOUT ===== -->
+  <dialog class="modal modal-sm" id="checkoutModal" aria-labelledby="checkoutTitle">
+    <form class="form" id="checkoutForm" novalidate>
+      <div class="modal-head">
+        <h2 id="checkoutTitle">Checkout</h2>
+        <button class="icon-btn" type="button" data-close aria-label="Tutup">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+      <p class="co-user" id="coUser"></p>
+      <fieldset class="field">
+        <legend>Cara terima pesanan</legend>
+        <label class="radio"><input type="radio" name="coMethod" value="ambil" checked> Ambil di toko</label>
+        <label class="radio"><input type="radio" name="coMethod" value="kirim"> Dikirim ke alamat</label>
+      </fieldset>
+      <div class="field" id="addressField" hidden>
+        <label for="coAddress">Alamat pengiriman</label>
+        <select id="coAddress"></select>
+        <a class="link small" href="#/akun?tab=alamat" data-close>+ Tambah / ubah alamat</a>
+      </div>
+      <div class="field">
+        <label for="coNote">Catatan (opsional)</label>
+        <input id="coNote" maxlength="300" placeholder="Misal: tolong dibungkus kado">
+      </div>
+      <label class="check itk-check"><input type="checkbox" id="coItk"> Saya mahasiswa ITK (diskon 15% dicek admin)</label>
+      <div class="summary" id="coSummary"></div>
+      <p class="form-error" id="coError" hidden></p>
+      <div class="form-actions">
+        <button type="button" class="btn btn-ghost" data-close>Batal</button>
+        <button type="submit" class="btn btn-primary" id="coSubmit">Buat pesanan</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- pengaturan, lalu shared: data & penghubung API -->
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/shared/core.js"></script>
+  <script src="assets/js/shared/api.js"></script>
+  <!-- halaman toko (urutan penting: dasar dulu, main paling akhir) -->
+  <script src="assets/js/toko/dasar.js"></script>
+  <script src="assets/js/toko/beranda.js"></script>
+  <script src="assets/js/toko/katalog.js"></script>
+  <script src="assets/js/toko/produk.js"></script>
+  <script src="assets/js/toko/halaman.js"></script>
+  <script src="assets/js/toko/pencarian.js"></script>
+  <script src="assets/js/toko/keranjang.js"></script>
+  <script src="assets/js/toko/akun.js"></script>
+  <script src="assets/js/toko/main.js"></script>
+</body>
+</html>
